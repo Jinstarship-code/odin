@@ -157,3 +157,68 @@ console.log(add5(2)); // logs 7
 - 자바스크립트는 string과 native object사이를 변환할 수 있는 메소드를 가진 global JSON 객체를 제공한다
 - desrialization : string -> native object
 - serialization : native object -> string
+
+### 2. JSON structure
+
+- 자바스크립트 객체 리터럴 형식과 매우 유사하게 생겼다.
+
+```json
+/* JSON */
+{
+  "squadName": "Super hero squad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower",
+  "active": true,
+  "members": [
+    {
+      "name": "Molecule Man",
+      "age": 29,
+      "secretIdentity": "Dan Jukes",
+      "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "secretIdentity": "Jane Wilson",
+      "powers": [
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes"
+      ]
+    },
+    {
+      "name": "Eternal Flame",
+      "age": 1000000,
+      "secretIdentity": "Unknown",
+      "powers": [
+        "Immortality",
+        "Heat Immunity",
+        "Inferno",
+        "Teleportation",
+        "Interdimensional travel"
+      ]
+    }
+  ]
+}
+```
+
+- 자바스크립트로 JSON객체에 접근하고자 할 때, 이러한 방식으로 접근할 수 있다.
+  ```js
+  superHeroes["member"][1]["powers"][2];
+  /* 
+  superHeroes 변수의, member 프로퍼티의, 2번째 객체의, powers 프로퍼티의, 3번쨰 객체에 접근
+  */
+  ```
+  - 아래의 링크로 들어가서 위의 코드를 연습해보자.
+  - [슈퍼 히어로 JSON](https://mdn.github.io/learning-area/javascript/oojs/json/JSONTest.html)
+  - [test project](./JSON%20study/JSON_test_project/heroes.html)
+
+### 3. Converting between objects and text
+
+- response.json( ) 을 사용해서, 네트워크에서 바로 object로 받을 수 있는데, 그렇치 못할 때가 있다.
+- 이러한 경우 브라우저의 빌트인 JSON 객체를 통해 해결할 수 있다.
+- parse( )
+  - param: JSON string -> return js object
+- stringify( )
+  - param: object -> return JSON string
